@@ -1,0 +1,10 @@
+class Solution {
+    public int maxJump(int[] stones) {
+        if (stones.length == 2) return stones[stones.length-1];
+        int diff = 0;
+        for(int i=0;i<stones.length-2;i++){
+            diff = Math.max(diff, stones[i+2]-stones[i]);
+        }
+        return diff;
+    }
+}
