@@ -1,0 +1,22 @@
+public class MyClass {
+  public static void main(String args[]) {
+    int height[] = { 4,2,0,3,2,5 };
+    int leftMax[] = new int[height.length];
+    int rightMax[] = new int[height.length];
+    Arrays.fill(leftMax,0);
+    Arrays.fill(rightMax,0);
+    leftMax[0]=height[0];
+    rightMax[height.length-1]=height[height.length-1];
+    int j=height.length-2;
+    for(int i=1;i<height.length;i++){
+        leftMax[i]=Math.max(leftMax[i-1],height[i]);
+        rightMax[j]=Math.max(rightMax[j+1],height[j]);
+        j--;
+    }
+    int total = 0;
+    for(int i=0;i<leftMax.length;i++){
+    total += Math.min(leftMax[i],rightMax[i])-height[i];  
+    }
+    System.out.println(total);
+  }
+}
