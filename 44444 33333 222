@@ -1,0 +1,23 @@
+l = [-1] * 20
+l[1]=1
+for i in range(3,20,2):
+    l[i] = l[i-2]+1
+print(l)
+n=11
+m=n
+k = l[n]
+while True:
+    print(str(k)*m)
+    m -= 2
+    k -= 1
+    if k==0:
+        break 
+m=2
+k=2
+while True:
+    if m == (n+1):
+        break 
+    print(str(k)*(m+2))
+    k+=1
+    m+=2
+    
