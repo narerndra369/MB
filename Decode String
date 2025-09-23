@@ -1,0 +1,16 @@
+s = "3[a2[c]]"
+l=[] 
+for i in s:
+    if i != ']':
+        l.append(i)
+    else:
+        e = "" #   a
+        while l[-1]!='[':
+            e = l.pop()+e
+        l.pop()
+        n=""
+        while l and l[-1].isdigit():        
+            n = l.pop()+n
+        k = e*int(n)
+        l.append(k)
+print("".join(l))
