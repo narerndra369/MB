@@ -1,39 +1,57 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+// PS : The name of the public class has to be Main for the code to work
 import java.util.*;
+class Point implements Comparable<Point>{
+    public int x,y;
+    Point(int p1,int p2){
+        x=p1;
+        y=p2;
+    }
+
+    @Override
+    public int compareTo(Point that){
+        if(this.x==that.x){
+            return Integer.compare(this.y,that.y);
+        }
+        else{
+            return Integer.compare(this.x,that.x);
+        }
+    }
+    @Override
+    public String toString(){
+        return "("+x+","+y+")";
+    }
+    
+}
 public class Main {
     public static void main(String args[]){
        int n=10;
-        int x=1;
-        int y=1;
-        List<List<Integer>>  l= new ArrayList<>();
+        int x=5;
+        int y=5;
+        List<Point>  l= new ArrayList<>();
+        l.append(c,y);
         // top left
         for(int i=x-1,j=y-1;i>=0 && j>=0;i--,j--){
-            List<Integer> a=new ArrayList<>();
-            a.add(i);
-            a.add(j);
-            l.add(a);
+            Point p =new Point (i,j);
+            l.add(p);
         }
         //top right
         for(int i=x-1,j=y+1;i>=0 && j<10;i--,j++){
-            List<Integer> a=new ArrayList<>();
-            a.add(i);
-            a.add(j);
-            l.add(a);
+            Point p =new Point (i,j);
+            l.add(p);
         }
         // bottom left
         for(int i=x+1,j=y-1;i<n && j>=0;i++,j--){
-            List<Integer> a=new ArrayList<>();
-            a.add(i);
-            a.add(j);
-            l.add(a);
+            Point p =new Point (i,j);
+            l.add(p);
         }
         //bottom right
         for(int i=x+1,j=y+1;i<n && j<n;i++,j++){
-            List<Integer> a=new ArrayList<>();
-            a.add(i);
-            a.add(j);
-            l.add(a);
+            Point p =new Point (i,j);
+            l.add(p);
         }
-        // Collections.sort(l);
+        Collections.sort(l);
         System.out.println(l);
     }
 }
