@@ -1,0 +1,15 @@
+def scoreOfParentheses(s: str) -> int:
+        l = []
+        l.append(0)
+        for i in range(len(s)):
+            if s[i] == '(':
+                l.append(0)
+            else:
+                res = l.pop()
+                if res == 0:
+                    res = 1
+                else:
+                    res = 2 * res
+                res = l.pop() + res
+                l.append(res)
+        return l.pop()
