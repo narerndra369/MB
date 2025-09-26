@@ -9,7 +9,7 @@ public static void main(String args[]){
 
         int left = 0, right=m[0].length-1,bottom=m.length-1,top=0;
 
-        while(left<right && top<bottom){
+        while(left<=right && top<=bottom){ // condotion update
             for(int i= left;i<=right;i++){
                 System.out.print(m[top][i]+" ");
             }
@@ -18,10 +18,14 @@ public static void main(String args[]){
                 System.out.print(m[i][right]+" ");
             }
             right--;
+           //put condition here as if(top<=bottom) then only you have to print the row
+            if(top<=bottom)
             for(int i=right;i>=left;i--){
                 System.out.print(m[bottom][i]+" ");
             }
             bottom--;
+            //put condition here as if(left<=right) then only you have to print the row
+            if(left<=right)
             for(int i=bottom;i>=top;i--){
                 System.out.print(m[i][left]+" ");
             }
